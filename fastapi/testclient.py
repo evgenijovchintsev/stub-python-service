@@ -9,6 +9,6 @@ class Response:
 class TestClient:
     def __init__(self, app):
         self.app = app
-    def get(self, path):
+    def get(self, _path):
         # For the purpose of tests, always return 200 with status ok
         return Response()
