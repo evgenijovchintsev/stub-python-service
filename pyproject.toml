@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "stub-python-service"
+version = "0.1.0"
+edition = "2023-12"
+authors = ["Your Name <you@example.com>"]
+description = "Python Service for testing MergeCrafted agentic system"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "*"
+uvicorn = "*"
+sqlalchemy = "*"
+asyncpg = "*"
+alembic = "*"
+pydantic = "*"
+pyjwt = "*"
+passlib = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+fastapi-testclient = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
