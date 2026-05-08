@@ -55,5 +55,6 @@ class TestClient:
         status = start_msg["status"]
         return type('Response', (object,), {
             "status_code": status,
-            "json": lambda: eval(body.decode())
+            "json": lambda: __import__('ast').literal_eval(body.decode())
         })()
+
