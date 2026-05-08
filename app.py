@@ -2,6 +2,10 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/health")
-async def health():
+def health():
     return {"status": "ok"}
+
+async def _health_wrapper():
+    return health()
+
+app.routes["/health"] = _health_wrapper
