@@ -6,7 +6,7 @@ author = ""
 [tool.poetry.dependencies]
 python = "^3.9"
 fastapi = "*"
-uicorn = "*"
+uvicorn = "*"
 sqlalchemy = "*"
 asyncpg = "*"
 alembic = "*"
