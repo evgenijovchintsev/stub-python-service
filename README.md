@@ -1,2 +1,1 @@
-# stub-python-service
-Python Service for testing MergeCrafted agentic system
+# stub-python-service\nPython Service for testing MergeCrafted agentic system\n
