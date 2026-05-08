@@ -1,2 +1,2 @@
-def run(*args, **kwargs):
+def run(*_, **__):
     pass
