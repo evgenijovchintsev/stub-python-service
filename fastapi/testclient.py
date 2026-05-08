@@ -11,6 +11,6 @@ class TestClient:
     def get(self, path):
         handler = self.app.routes.get(path)
         if not handler:
-            raise Exception("404")
+            raise ValueError("404")
         data = handler()
         return Response(data)
