@@ -17,7 +17,7 @@ class TestClient:
     def get(self, path: str):
         func = self.app.routes.get(path)
         if not func:
-            raise Exception(f"404 Not Found for {path}")
+            raise RuntimeError(f"404 Not Found for {path}")
         # Call the async function synchronously for test purposes
         result = func()
         return DummyResponse(result)
