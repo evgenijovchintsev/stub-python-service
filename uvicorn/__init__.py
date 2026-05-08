@@ -1,2 +1,2 @@
-def run(app, host="0.0.0.0", port=8000):
+def run(_app, _host="0.0.0.0", _port=8000):
     pass
