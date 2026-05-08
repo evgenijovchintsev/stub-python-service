@@ -1,0 +1,1 @@
+fastapi==0.110.0\nuvicorn==0.27.0\nsqlalchemy==2.0.30\nasyncpg==0.29.0\nalembic==1.13.1\npydantic==2.5.2\npyjwt==2.8.0\npasslib==1.7.4\npytest==7.4.3\n

@@ -1,0 +1,1 @@
+import uvicorn\nfrom app import app\n\nif __name__ == "__main__":\n    uvicorn.run(app, host="0.0.0.0", port=8000)\n
