@@ -1,1 +1,1 @@
-from starlette.applications import Starlette as FastAPI
+from fastapi import FastAPI
