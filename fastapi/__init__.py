@@ -10,7 +10,6 @@ class FastAPI:
 
 # expose submodule for testclient
 import types
-testclient = types.SimpleNamespace()
 class Response:
     def __init__(self, status_code, body=None):
         self.status_code = status_code
@@ -31,7 +30,8 @@ class TestClient:
         # Assume the function returns a dict for simplicity
         return Response(200, result)
 
-# Attach TestClient to submodule
-import sys
-sys.modules[__name__ + ".testclient"] = types.ModuleType("fastapi.testclient")
-sys.modules[__name__ + ".testclient"].TestClient = TestClient
+# Create and register the testclient module properly
+_testclient_module = types.ModuleType("fastapi.testclient")
+_testclient_module.TestClient = TestClient
+_sys_modules = __import__('sys').modules
+_sys_modules[__name__ + ".testclient"] = _testclient_module
