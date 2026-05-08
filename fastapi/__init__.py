@@ -21,7 +21,7 @@ class FastAPI:
             })
             await send({"type": "http.response.body", "body": body})
         else:
-            body = b"")
+            body = b""
             await send({
                 "type": "http.response.start",
                 "status": 404,
