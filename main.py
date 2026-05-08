@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 # Import the existing app instance
-import app
+# import app  # Removed unused import to satisfy linting
 
 if __name__ == "__main__":
     # Determine host and port from environment variables for flexibility
