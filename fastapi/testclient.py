@@ -1,5 +1,5 @@
 """Minimal stub for fastapi.testclient used in tests."""
-from typing import Any, Dict
+from typing import Any
 
 class Response:
     def __init__(self, json_data: Any):
