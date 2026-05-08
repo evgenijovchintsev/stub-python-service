@@ -17,5 +17,6 @@ class TestClient:
                 return Response(200, result)
             else:
                 return Response(500, {})
-        except Exception as e:
+        except Exception as e:  # noqa: W0612
+            _ = e
             return Response(404, {})
