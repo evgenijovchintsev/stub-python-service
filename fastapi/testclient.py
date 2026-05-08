@@ -1,6 +1,6 @@
 """Minimal stub of fastapi.testclient for testing purposes."""
 import asyncio
-from typing import Any, Dict
+from typing import Any
 
 class Response:
     def __init__(self, json_data: Any):
