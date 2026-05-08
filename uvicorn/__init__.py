@@ -1,2 +1,3 @@
-def run(*args, **kwargs):
+def run(*_, **__):
+    """Placeholder for uvicorn.run."""
     pass
