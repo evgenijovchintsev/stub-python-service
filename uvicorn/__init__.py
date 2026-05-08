@@ -1,3 +1,3 @@
-def run(app, host=None, port=None):
+def run(_app, _host=None, _port=None):
     # Dummy run function for testing purposes
     pass
