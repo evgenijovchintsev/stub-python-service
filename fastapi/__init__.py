@@ -1,0 +1,13 @@
+import asyncio
+
+class FastAPI:
+    def __init__(self):
+        self.routes = []
+
+    def get(self, path):
+        def decorator(func):
+            self.routes.append((path, func))
+            return func
+        return decorator
+
+app = None
