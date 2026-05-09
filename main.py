@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+from config import settings
+
+app = FastAPI(debug=settings.debug)
 
 
 @app.get("/health")
