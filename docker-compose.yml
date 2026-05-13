@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      # Override database URL to point to the postgres service inside compose network
+      DB_URL: postgresql+asyncpg://user:password@postgres:5432/db
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
