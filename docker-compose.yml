@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      DB_URL: ${DB_URL:-postgresql+asyncpg://user:password@localhost:5432/db}
+      JWT_SECRET: ${JWT_SECRET:-change-me-before-production}
+      JWT_EXPIRE_MINUTES: ${JWT_EXPIRE_MINUTES:-60}
+      DEBUG: ${DEBUG:-false}
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  pgdata: {}
