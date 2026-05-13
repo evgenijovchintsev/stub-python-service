@@ -6,7 +6,7 @@ from sqlalchemy.orm import DeclarativeBase
 from config import settings
 
 
-class Base(DeclarativeBase):
+class Base(DeclarativeBase):  # pylint: disable=too-few-public-methods
     """Base class for all ORM models."""
 
 

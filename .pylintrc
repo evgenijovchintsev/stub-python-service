@@ -1,0 +1,5 @@
+[MAIN]
+# alembic/env.py uses a dynamic proxy (alembic.context) that pylint cannot
+# introspect, and alembic/versions/ files are auto-generated — both produce
+# only false-positive warnings. Exclude the entire directory.
+ignore-paths = ^alembic/.*
