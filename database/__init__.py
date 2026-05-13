@@ -1,7 +1,8 @@
-# Top-level database package
-# Re-export ORM base and related objects from the sibling module
-from . import database as _db
+# Expose ORM base and shared objects for external consumers
+from .base import Base
 
-Base = _db.Base
-engine = _db.engine
+# Import engine and async_session from the sibling module at repository root
+from .. import database as _db
+
+e = _db.engine
 async_session = _db.async_session
