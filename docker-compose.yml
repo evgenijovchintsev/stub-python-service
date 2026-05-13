@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - db
+    env_file:
+      - .env.example
+    environment:
+      DB_URL: postgresql+asyncpg://user:password@db:5432/db
+    volumes:
+      - ./:/app
+    ports:
+      - "8000:8000"
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+volumes:
+  dbdata:
