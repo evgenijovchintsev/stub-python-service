@@ -12,16 +12,18 @@ from sqlalchemy import Column, Integer, DateTime, func
 class Base(DeclarativeBase):  # pylint: disable=too-few-public-methods
     """Base class for all ORM models. Provides id, created_at, and updated_at columns."""
 
-    @declared_attr.directive
+    @declared_attr
     def id(cls):
         return Column(Integer, primary_key=True)
 
-    @declared_attr.directive
+    @declared_attr
     def created_at(cls):
+        # noqa: E1102 - func.now is a SQLAlchemy function, linter incorrectly flags it
         return Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
 
-    @declared_attr.directive
+    @declared_attr
     def updated_at(cls):
+        # noqa: E1102 - func.now used for default and onupdate
         return Column(
             DateTime(timezone=True),
             default=func.now(),
