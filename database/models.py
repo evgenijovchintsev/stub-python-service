@@ -1,4 +1,3 @@
-from sqlalchemy import Column, Integer, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 
@@ -11,6 +10,10 @@ def updated_at_default(context):
 def update_updated_at(mapper, connection, target):
     target.updated_at = datetime.utcnow()
 
-Base = declarative_base()
+class BaseModel(Base):
+    __abstract__ = True
+    id = Column(Integer, primary_key=True)
+    created_at = Column(DateTime, default=created_at_default)
+    updated_at = Column(DateTime, default=updated_at_default, onupdate=datetime.utcnow)
 
-Base.metadata.create_all()
+Base = declarative_base()
