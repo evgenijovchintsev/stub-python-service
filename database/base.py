@@ -1,0 +1,1 @@
+from sqlalchemy import Column, Integer, DateTime, func\nfrom sqlalchemy.ext.declarative import declarative_base\n\nBase = declarative_base()\n
