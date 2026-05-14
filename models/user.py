@@ -1,1 +1,9 @@
-from database.base import Base\nfrom sqlalchemy import Column, Integer, DateTime, func\n\nclass User(Base):\n    __tablename__ = 'users'\n\n    id = Column(Integer, primary_key=True)\n    created_at = Column(DateTime(timezone=True), server_default=func.now())\n    updated_at = Column(DateTime(timezone=True), onupdate=func.now(), server_default=func.now())\n
+from database.base import Base
+from sqlalchemy import Column, Integer, DateTime, func
+
+class User(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now(), server_default=func.now())
