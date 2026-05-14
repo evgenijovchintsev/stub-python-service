@@ -1,14 +1,16 @@
-"""SQLAlchemy async engine, session factory, and declarative base."""
+# database.py
 
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy import Column, Integer, DateTime, func
+from sqlalchemy.ext.declarative import declarative_base
 
-from config import settings
+def get_db_url():
+    # This is a placeholder function. Replace with actual database URL.
+    return 'sqlite:///example.db'
 
+Base = declarative_base()
 
-class Base(DeclarativeBase):  # pylint: disable=too-few-public-methods
-    """Base class for all ORM models."""
-
-
-engine = create_async_engine(settings.db_url, echo=settings.debug)
-async_session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+class BaseModel(Base):
+    __abstract__ = True
+    id = Column(Integer, primary_key=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now(), server_default=func.now())
