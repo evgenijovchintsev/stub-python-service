@@ -1,6 +1,8 @@
-from sqlalchemy import Column, Integer, DateTime, func
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, Text, DateTime
+import datetime
 
-class Base:
-    id = Column(Integer, primary_key=True)
-    created_at = Column(DateTime(timezone=True), default=func.now())
-    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+def get_current_time():
+    return datetime.datetime.utcnow()
+
+Base = declarative_base()
