@@ -1,3 +1,4 @@
+from sqlalchemy import func
 from sqlalchemy import Column, Integer, DateTime, func
 
 
