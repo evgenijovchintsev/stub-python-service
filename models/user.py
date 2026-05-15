@@ -1,4 +1,8 @@
-from database.base import Base
+
+def get_utcnow():
+    return datetime.datetime.utcnow()from database.base import Base
+from sqlalchemy import Column, Integer, DateTime, String
+import datetimefrom database.base import Base
 from sqlalchemy import Column, Integer, String, DateTime
 class User(Base):
     __tablename__ = 'users'
