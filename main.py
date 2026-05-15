@@ -1,1 +1,1 @@
-from models.__init__ import Base, BaseModel, User
+from models.user import User
