@@ -1,5 +1,3 @@
-from datetime import datetime
-class BaseMixin:
-    id = None
-    created_at = datetime.utcnow()
-    updated_at = datetime.utcnow()
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
