@@ -1,4 +1,4 @@
-from database.models import Base
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, DateTime, func
 
 class User(Base):
