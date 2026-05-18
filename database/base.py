@@ -39,5 +39,3 @@ class BaseModel:
         onupdate=func.now,  # avoid lint error by passing the callable without invoking it
         nullable=False,
     )
-
-}
