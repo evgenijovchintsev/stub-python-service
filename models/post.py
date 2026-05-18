@@ -1,4 +1,4 @@
-# models/post.py
+from database.base import Base# models/post.py
 from database.base import Base, Column, Integer, DateTime, get_current_time
 
 class Post(Base):

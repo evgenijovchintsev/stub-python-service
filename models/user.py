@@ -1,4 +1,4 @@
-# models/user.py
+from database.base import Base# models/user.py
 from database.base import Base, Column, Integer, DateTime, get_current_time
 
 class User(Base):
