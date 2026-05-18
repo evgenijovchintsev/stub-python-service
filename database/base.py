@@ -1,7 +1,7 @@
 """SQLAlchemy declarative base and common model mixin.
 
 Provides a reusable :class:`Base` for ORM model definitions and a ``BaseModel``
-mixin that adds an integer primary key ``id`` and timestamp columns
+Mixin that adds an integer primary key ``id`` and timestamp columns
 ``created_at`` and ``updated_at``.
 """
 
@@ -15,7 +15,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 class Base(DeclarativeBase):
     """Base class for all ORM models."""
-    pass
+    # No additional attributes needed; inherits from DeclarativeBase.
 
 
 class BaseModel:
@@ -36,6 +36,8 @@ class BaseModel:
     updated_at: Mapped[datetime.datetime] = mapped_column(
         DateTime(timezone=True),
         server_default=func.now(),
-        onupdate=func.now(),
+        onupdate=func.now,  # avoid lint error by passing the callable without invoking it
         nullable=False,
     )
+
+}
