@@ -36,6 +36,6 @@ class BaseModel:
     updated_at: Mapped[datetime.datetime] = mapped_column(
         DateTime(timezone=True),
         server_default=func.now(),
-        onupdate=func.now,  # avoid lint error by passing the callable without invoking it
+        onupdate=func.now(),
         nullable=False,
     )
