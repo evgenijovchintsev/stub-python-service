@@ -1,4 +1,8 @@
-"""SQLAlchemy async engine, session factory, and declarative base."""
+from sqlalchemy.ext.declarative import declarative_base
+Base = declarative_base()
+
+def init_db():
+    Base.metadata.create_all(bind=engine)"""SQLAlchemy async engine, session factory, and declarative base."""
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
