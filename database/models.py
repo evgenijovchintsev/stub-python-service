@@ -1,0 +1,3 @@
+from sqlalchemy import create_engine, Column, Integer, DateTime
+from sqlalchemy.sql import func
+def create_base():\n    from sqlalchemy.ext.declarative import declarative_base\n    Base = declarative_base()\n    class BaseModel(Base):\n        __abstract__ = True\n        id = Column(Integer, primary_key=True)\n        created_at = Column(DateTime(timezone=True), server_default=func.now())\n        updated_at = Column(DateTime(timezone=True), onupdate=func.now())\n    return Base
