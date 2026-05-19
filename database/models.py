@@ -1,0 +1,1 @@
+from sqlalchemy import Column, Integer, DateTime, func\n\nclass Base:\n    id = Column(Integer, primary_key=True)\n    created_at = Column(DateTime, default=func.now())\n    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
