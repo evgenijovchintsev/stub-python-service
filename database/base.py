@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, DateTime
+# Unused imports removed by AI assistant
 from sqlalchemy.ext.declarative import declarative_base
 import datetime
 
