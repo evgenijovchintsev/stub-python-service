@@ -1,5 +1,4 @@
-from database.base import get_base
-Base = get_base()
+from database.base import Base
 
 class User(Base):
     def __init__(self, id, created_at, updated_at):
