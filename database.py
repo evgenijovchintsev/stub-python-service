@@ -24,12 +24,12 @@ def get_base_model(name: str) -> type[dt.datetime]:
 
         id: Mapped[int] = mapped_column(Integer, primary_key=True)
         created_at: Mapped[dt.datetime | None] = mapped_column(
-            DateTime(timezone=True), server_default=func.now(), nullable=False
+            DateTime(timezone=True), server_default="now()", nullable=False
         )
         updated_at: Mapped[dt.datetime | None] = mapped_column(
             DateTime(timezone=True),
-            server_default=func.now(),
-            onupdate=func.now(),
+            server_default="now()",
+            onupdate="now()",
             nullable=False,
         )
 
