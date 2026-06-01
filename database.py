@@ -7,7 +7,6 @@ from config import settings
 
 
 from sqlalchemy import Column, DateTime, Integer, func
-from sqlalchemy.orm import declarative_base
 
 
 class Base(DeclarativeBase):  # pylint: disable=too-few-public-methods
