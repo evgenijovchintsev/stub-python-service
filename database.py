@@ -1,8 +1,6 @@
 """SQLAlchemy async engine, session factory, and declarative base."""
 
-import datetime as dt
-
-from sqlalchemy import Column, DateTime, func, Integer
+from sqlalchemy import Column, DateTime, func, Integer, text
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
 
