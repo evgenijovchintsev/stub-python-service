@@ -1,9 +1,7 @@
 """SQLAlchemy async engine, session factory, and declarative base."""
 
-from datetime import datetime
-from sqlalchemy import Column, DateTime, Integer, func
+from sqlalchemy import Column, DateTime, Integer, Text
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from sqlalchemy.orm import DeclarativeBase
 
 from config import settings
 
@@ -26,13 +24,13 @@ class Base(DeclarativeBase):  # pylint: disable=too-few-public-methods
     id = Column(Integer, primary_key=True, index=True, comment="Unique identifier")
     created_at = Column(
         DateTime(timezone=True),
-        server_default=func.now(),
+        default=lambda: Text('now()'),
         comment="Record creation timestamp"
     )
     updated_at = Column(
         DateTime(timezone=True),
-        server_default=func.now(),
-        onupdate=func.now(),
+        default=lambda: Text('now()'),
+        onupdate=lambda: Text('now()'),
         comment="Last record update timestamp"
     )
 
