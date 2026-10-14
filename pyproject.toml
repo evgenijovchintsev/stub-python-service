@@ -23,7 +23,7 @@ dev = [
 ]
 
 [tool.setuptools]
-py-modules = ["main", "config", "database"]
+py-modules = ["main", "config", "database", "utils"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
