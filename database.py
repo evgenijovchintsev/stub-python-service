@@ -6,8 +6,17 @@ from sqlalchemy.orm import DeclarativeBase
 from config import settings
 
 
+from sqlalchemy import Column, DateTime, Integer
+
+import datetime
+
+
 class Base(DeclarativeBase):  # pylint: disable=too-few-public-methods
     """Base class for all ORM models."""
+
+    id = Column(Integer, primary_key=True, index=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    updated_at = Column(DateTime, onupdate=datetime.datetime.utcnow)
 
 
 engine = create_async_engine(settings.db_url, echo=settings.debug)
