@@ -1,0 +1,1 @@
+from sqlalchemy import create_engine\nfrom sqlalchemy.orm import sessionmaker\nfrom .database import BaseModel\nfrom .models.user import User\n\nDATABASE_URL = "sqlite:///example.db"\nengine = create_engine(DATABASE_URL)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase.metadata.create_all(bind=engine)
