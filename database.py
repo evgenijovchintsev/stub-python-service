@@ -1,14 +1,1 @@
-"""SQLAlchemy async engine, session factory, and declarative base."""
-
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from sqlalchemy.orm import DeclarativeBase
-
-from config import settings
-
-
-class Base(DeclarativeBase):  # pylint: disable=too-few-public-methods
-    """Base class for all ORM models."""
-
-
-engine = create_async_engine(settings.db_url, echo=settings.debug)
-async_session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine\nfrom sqlalchemy.orm import DeclarativeBase\nfrom sqlalchemy import Column, Integer, DateTime\nimport datetime\n\nfrom config import settings\n\nclass Base(DeclarativeBase):  # pylint: disable=too-few-public-methods\n    \"\"\"Base class for all ORM models.\"\"\"\n    \n    id = Column(Integer, primary_key=True, index=True)\n    created_at = Column(DateTime, default=datetime.datetime.utcnow)\n    updated_at = Column(DateTime, onupdate=datetime.datetime.utcnow)\n\ngine = create_async_engine(settings.db_url, echo=settings.debug)\nasync_session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
