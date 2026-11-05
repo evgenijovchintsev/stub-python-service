@@ -1,0 +1,26 @@
+# Minimal defaults for MergeCrafted E2E deployment runs.
+# The image points at the Harbor mirror (make base-images in MergeCrafted
+# syncs docker.io/library/nginx:1.27-alpine3.21 there) so cluster nodes never
+# depend on docker.io reachability. Override per environment if needed.
+replicaCount: 1
+
+image:
+  repository: harbor.neoflex.ru/test-images/base/nginx
+  tag: "1.27-alpine3.21"
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+containerPort: 80
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 32Mi
+  limits:
+    memory: 64Mi
