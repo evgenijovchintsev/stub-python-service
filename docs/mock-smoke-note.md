@@ -1,1 +1,4 @@
-# Mock smoke note 1795342010
+# Mock smoke note
+
+QA-AR-C1-PROOF
+Reviewed: iteration 1
