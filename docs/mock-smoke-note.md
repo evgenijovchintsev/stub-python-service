@@ -1,1 +1,2 @@
-# Mock smoke note
+# Mock smoke note 1795538961
+C6POLLRUN-FIX: ретрай при таймауте добавлен, замечание f1 устранено
