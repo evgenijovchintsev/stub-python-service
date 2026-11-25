@@ -1,0 +1,1 @@
+This is the llmock fallback stored reply: no response-rule marker matched the request. MergeCrafted's file parser will treat this prose as the content of one generated file.
